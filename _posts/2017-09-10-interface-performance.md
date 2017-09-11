@@ -108,7 +108,7 @@ with the code you get if you don't:
         instance void  F() cil managed
 ```
 
-If you don't explicitly use the keyword "virtual", interface implementations are marked virtual and final. My best guess is that the presence of final is enough to tip off the JIT compiler that inlining is possible since you can assume the target of the call won't change. And as expected, if you do decide to explicitly mark Foo::F as virtual in the code, the performance of the Foo::F call is much more in line with the performance of the IFoo::F call.
+If you don't explicitly use the ```virtual``` keyword, interface implementations are marked virtual and final. My best guess is that the presence of final is enough to tip off the JIT compiler that inlining is possible since you can assume the target of the call won't change. And as expected, if you do decide to explicitly mark Foo::F as virtual in the code, the JIT compiler does not inline anything and performance comes much closer to parity.
 
 <br/><br/>
 #### Footnotes
